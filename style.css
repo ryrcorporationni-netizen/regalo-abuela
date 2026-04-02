@@ -161,3 +161,15 @@ body {
         padding: 10px;
     }
 }
+
+/* Busca esto en tu CSS y cámbialo */
+.emoji-grande {
+    /* Estaba en 80px, vamos a subirlo para que destaque */
+    font-size: 130px; 
+    
+    /* Añadimos un poco más de espacio debajo para que respire */
+    margin-bottom: 25px; 
+    
+    /* Centrado */
+    text-align: center;
+}
