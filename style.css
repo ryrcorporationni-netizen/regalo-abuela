@@ -1,0 +1,163 @@
+:root {
+    --rosa-fuerte: #d81b60;
+    --rosa-claro: #fce4ec;
+    --blanco-borde: #ffffff;
+}
+
+body {
+    background: radial-gradient(circle, #ffffff, #fce4ec);
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    /* Mejora la nitidez de las fuentes */
+    -webkit-font-smoothing: antialiased;
+}
+
+.overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 0.6s ease;
+}
+
+.overlay-content { text-align: center; }
+
+.overlay-content button {
+    background: var(--rosa-fuerte);
+    color: white;
+    border: none;
+    padding: 18px 45px;
+    font-size: 1.3rem;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(216, 27, 96, 0.3);
+}
+
+.hidden { display: none; }
+
+/* CONTENEDOR: Más espacio para que no se peguen al girar */
+.contenedor-cartas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; 
+    gap: 60px; /* Espacio entre cartas */
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.titulo-pagina {
+    text-align: center;
+    color: var(--rosa-fuerte);
+    margin-top: 40px;
+    font-size: 2.2rem;
+}
+
+.card {
+    width: 280px;
+    height: 380px;
+    perspective: 1200px;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+    will-change: transform; /* Optimiza el renderizado del navegador */
+}
+
+.card.is-flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* Evita el parpadeo y la borrosidad */
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 8px solid var(--blanco-borde);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.card-front {
+    background: linear-gradient(45deg, #ff80ab, #f06292);
+    font-size: 80px;
+}
+
+.card-back {
+    background: white;
+    transform: rotateY(180deg);
+    text-align: center;
+    padding: 25px;
+}
+
+.card-back h3 { color: var(--rosa-fuerte); margin-top: 0; }
+
+.instruccion { text-align: center; color: #888; font-style: italic; margin-top: 20px; }
+
+/* RESPONSIVE PARA CELULAR */
+/* RESPONSIVE PARA CELULAR - CORRECCIÓN DEFINITIVA */
+@media screen and (max-width: 767px) {
+    html, body {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden; /* Prohibido el scroll lateral */
+        position: relative;
+    }
+
+    .titulo-pagina {
+        font-size: 1.5rem !important;
+        padding: 0 15px;
+        margin: 20px auto !important;
+    }
+
+    .contenedor-cartas {
+        display: flex !important;
+        flex-direction: column !important; /* Fuerza vertical */
+        align-items: center !important;
+        gap: 30px !important; /* Espacio real entre tarjetas */
+        padding: 20px 0 !important;
+        width: 100% !important;
+        box-sizing: border-box;
+    }
+
+    .card {
+        /* Usamos un ancho fijo que quepa en cualquier celular (iPhone SE tiene 320px) */
+        width: 280px !important; 
+        height: 350px !important;
+        margin: 0 auto !important;
+        position: relative;
+    }
+
+    /* Aseguramos que las caras de la tarjeta no se salgan */
+    .card-front, .card-back {
+        width: 100% !important;
+        height: 100% !important;
+        box-sizing: border-box;
+    }
+
+    .card-front {
+        font-size: 60px !important;
+    }
+
+    .card-back p {
+        font-size: 0.95rem !important;
+        padding: 10px;
+    }
+}

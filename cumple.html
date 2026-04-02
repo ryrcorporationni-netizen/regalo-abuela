@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Feliz Cumpleaños Abuelita!</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎂</text></svg>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+    <div id="overlay" class="overlay">
+        <div class="overlay-content">
+            <div class="emoji-grande">🎂</div>
+            <h1>¡Hola Abuelita!</h1>
+            <p>Preparamos una sorpresa para ti.</p>
+            <button onclick="comenzarExperiencia()">Toca para entrar ✨</button>
+        </div>
+    </div>
+
+    <div id="contenido-principal" class="hidden">
+        <h1 class="titulo-pagina">¡Feliz Cumpleaños, Abuela!</h1>
+         <p class="instruccion">¡Toca las cartas para ver tus sorpresas!</p>
+
+        <div class="contenedor-cartas">
+            <div class="card" onclick="gestionarGiro(this, 'pop-sound')">
+                <div class="card-inner">
+                    <div class="card-front">🎁</div>
+                    <div class="card-back">
+                        <h3>Mucha Salud</h3>
+                        <p>Que Dios te cuide y te llene de bendiciones siempre.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" onclick="gestionarGiro(this, 'pop-sound')">
+                <div class="card-inner">
+                    <div class="card-front">🌸</div>
+                    <div class="card-back">
+                        <h3>Te Queremos</h3>
+                        <p>Gracias por ser la mejor abuela del mundo entero.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" onclick="gestionarGiro(this, 'pop-sound')">
+                <div class="card-inner">
+                    <div class="card-front">🍰</div>
+                    <div class="card-back">
+                        <h3>¡Felicidades!</h3>
+                        <p>Hoy celebramos tu vida con mucha alegría y amor.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="reproductor-youtube" style="display:none;"></div>
+    <div id="player"></div> 
+    <script src="https://www.youtube.com/iframe_api"></script>
+
+    <audio id="pop-sound" preload="auto">
+        <source src="https://actions.google.com/sounds/v1/foley/pop_cork.ogg" type="audio/ogg">
+        <source src="https://www.soundjay.com/buttons/sounds/button-10.mp3" type="audio/mpeg">
+    </audio>
+    <script src="script.js"></script>
+</body>
+</html>
